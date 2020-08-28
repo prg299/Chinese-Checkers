@@ -11,4 +11,6 @@ public class Node : MonoBehaviour
     public int node;
     
     bool occupied;
+
+    bool HelloWorld;
 }
