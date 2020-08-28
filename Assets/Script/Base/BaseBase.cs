@@ -5,8 +5,8 @@ using UnityEngine;
 public class BaseBase : MonoBehaviour
 {
     [SerializeField] protected enum MiniMax { Minimizing, Maximizing }
-    protected GameObject[] positiveBase;
-    protected GameObject[] negativeBase;
 
+    protected List<Node> thisBase;
+    protected List<Node> oppsiteBase;
     protected GameObject playerBase;
 }

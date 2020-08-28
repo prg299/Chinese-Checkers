@@ -4,11 +4,36 @@ using UnityEngine;
 
 public class PurpleBase : BaseBase
 {
-    [SerializeField] MiniMax miniMax = MiniMax.Maximizing;
+    public static List<GameObject> thisBasePurple = new List<GameObject>();
 
-    private void Start()
+    [SerializeField] MiniMax miniMax = MiniMax.Maximizing;
+    [SerializeField] List<Node> gameObjects;
+
+    private void Awake()
     {
+        thisBase = new List<Node>();
         playerBase = gameObject;
-        //playerBase.GetComponent<Collider>().bounds.Contains()
+    }
+
+    private void GetBaseNodes(Node[,] nodes)
+    {
+        //foreach (Node node in nodes)
+        //{          
+        //    if (node != null)
+        //    {                
+        //        thisBase.Add(node);
+        //    }
+        //}
+        gameObjects = thisBase;
+    }
+
+    private void OnEnable()
+    {
+        Grid.AssignBaseEvent += GetBaseNodes;
+    }
+
+    private void OnDisable()
+    {
+        Grid.AssignBaseEvent -= GetBaseNodes;
     }
 }
